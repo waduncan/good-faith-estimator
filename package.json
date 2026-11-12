@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "concurrently --kill-others --names api,web \"npm run dev -w @gfe/api\" \"npm run dev -w @gfe/web\"",
     "build": "npm run build -w @gfe/web",
+    "test": "npm test -w @gfe/api",
     "start": "npm run start -w @gfe/api",
     "db:generate": "npm run db:generate -w @gfe/api",
     "db:migrate": "npm run db:migrate -w @gfe/api"
