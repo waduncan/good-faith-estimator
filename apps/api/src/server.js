@@ -10,6 +10,8 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 const app = await buildApp({
   databaseUrl: process.env.DATABASE_URL,
   serveWeb: process.argv.includes('--serve-web'),
+  adminSecret: process.env.ADMIN_SECRET,
+  secureCookies: process.env.NODE_ENV === 'production',
 });
 
 try {
