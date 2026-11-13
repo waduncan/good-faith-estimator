@@ -11,6 +11,7 @@
     "build": "npm run build -w @gfe/web",
     "test": "npm test -w @gfe/api",
     "start": "npm run start -w @gfe/api",
+    "cdm:import": "node --env-file-if-exists=.env apps/api/src/cli/import-cdm.js",
     "db:generate": "npm run db:generate -w @gfe/api",
     "db:migrate": "npm run db:migrate -w @gfe/api"
   },

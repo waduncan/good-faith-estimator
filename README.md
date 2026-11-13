@@ -72,6 +72,15 @@ Imports require `description`, `standard_charge|gross`, and at least one paired 
 
 Every valid import is retained as a version. Publishing or rolling back changes the active version atomically. Imports report appointment bundles that reference CPTs unavailable in the candidate version.
 
+For CSVs over the 25 MB browser upload limit, run the importer from the project root in PowerShell. Use the location’s short code from Administration. The first command previews the import. The second publishes it to the database configured by `DATABASE_URL`.
+
+```powershell
+npm run cdm:import -- --location HHM --file "C:\path\Huntsville-Hospital.csv"
+npm run cdm:import -- --location HHM --file "C:\path\Huntsville-Hospital.csv" --publish
+```
+
+Run the command once per location. It streams the source CSV from disk, keeps only the normalized CPT charges in memory, and leaves the source file intact. Published versions appear in the app’s import history and can be rolled back there.
+
 ## Database migrations
 
 After changing table definitions in `apps/api/src/db/schema.js`, generate and review the migration before applying it.
